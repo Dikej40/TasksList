@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ Task.title }} {% endblock %}
+
+{% block body %}
+    <h1> <center> To Do Tasks List </center> </h1>
+    </br></br><h2> {{ Task.title }} </h2>
+    </br><p> {{ Task.body }} </p>
+    <hr>
+    <a href="/TasksList/index"> Go back </a>
+{% endblock %}

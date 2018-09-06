@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Symfony to do list {% endblock %}
+
+{% block body %}
+    <h1> <center> To Do Tasks List </center> </h1>
+    {% if Tasks %}
+        <table id="tasks" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Tasks title</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for Task in Tasks %}
+                    <tr>
+                        <td>
+                            {{ Task.title }}
+                        </td>
+                        <td>
+                            <a href="/task/{{ Task.id }}" class="btn btn-dark">Show</a>
+                            <a href="/task/edit/{{ Task.id }}" class="btn btn-light">Edit</a>
+                            <a href="#" class="btn btn-danger delete-task" data-id="{{Task.id}}">Delete</a>
+
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+      {% else %}
+        <p>No tasks to display </p>
+      {% endif %}
+{% endblock %}
+
+{% block javascripts %}
+    <script src="/js/main.js"></script>
+{% endblock %}
